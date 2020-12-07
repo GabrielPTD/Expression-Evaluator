@@ -26,3 +26,4 @@ An simple expression evaluator that doesn't use OOP.
   * Added support for new operators (`<>, =, <=, >=, or, and, xor, not, mod, \`).
   * Added support for variables and predefined variables
   * Added support for logical constants (`true, false`).
+  * Added **debug** informations and **rules**.
