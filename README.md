@@ -12,10 +12,17 @@ An simple expression evaluator that doesn't use OOP.
   
 # What operations does it support ?
   - [x] Paranthesis: You can use `(` and `)` for the general purposes.
-  - [x] Operators: `+, -, *, /, ==`
+  - [x] Operators: `+, -, /, *, <>, =, <=, >=, or, and, xor, not, mod, \` - `=` is ONLY for comparsion.
   - [ ] Functions: all functions from [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions).
-  - [x] You can use both real or integer constants. (E.g: `1.14 + 3.36 - 2`)
+  - [x] You can use real, integer or logical constants. (E.g: `1.14 + 3.36 - 2 or false`)
+  - [x] You can use variables and/or set values for certain variables(pi, e, etc).
   
 # How to use ?
 * Compile the source with a compiler that supports at least c++11 (works on both **Windows** and **Linux**).
 * Run the program and insert the expression, e.g: `(1 + (2 * 3) - 2) / 5` and it will return the answer `5`.
+
+# Changelog
+* Changelog 1.1
+  * Added support for new operators (`<>, =, <=, >=, or, and, xor, not, mod, \`).
+  * Added support for variables and predefined variables
+  * Added support for logical constants (`true, false`).
