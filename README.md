@@ -1,5 +1,5 @@
 # Expression-Evaluator
-An simple expression evaluator that doesn't use OOP.
+A simple expression evaluator that doesn't use OOP.
 
 # How does it work?
 * It converts the given expression from infix form to it's postfix form using the [Shunting-Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
@@ -13,7 +13,7 @@ An simple expression evaluator that doesn't use OOP.
 # What operations does it support ?
   - [x] Paranthesis: You can use `(` and `)` for the general purposes.
   - [x] Operators: `+, -, /, *, <>, =, <=, >=, or, and, xor, not, mod, \` - `=` is ONLY for comparsion.
-  - [ ] Functions: all functions from [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions).
+  - [x] Functions: all functions from [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions).
   - [x] You can use real, integer or logical constants. (E.g: `1.14 + 3.36 - 2 or false`)
   - [x] You can use variables and/or set values for certain variables(pi, e, etc).
   
@@ -27,3 +27,7 @@ An simple expression evaluator that doesn't use OOP.
   * Added support for variables and predefined variables
   * Added support for logical constants (`true, false`).
   * Added **debug** informations and **rules**.
+* Changelog 1.2
+  * Added support for all the functions from [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions) (except DivRem - will be added in next update)
+  * Fixed an error that made some functions that contain numbers in the name to not be recognized.
+  * Deleted some useless comments.

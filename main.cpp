@@ -11,7 +11,6 @@
 std::vector<std::string> PostfixNotation;
 std::stack<long double> Results;
 
-//std::map<std::string, short> Operators = { {"+", 1}, {"-", 1}, {"*", 2}, {"/", 2}, {"^", 3}, {"==", 4}, {"=", 5} };
 std::map<std::string, short> Operators = { {"^", 1}, {"+", 2}, {"-", 2}, {"*", 3}, {"/", 3}, {"\\", 4}, {"mod", 5}, {"=", 6}, {"<>", 6}, {"<", 6}, {"<=", 6},
 											{">", 6}, {">=", 6}, {"not", 7}, {"and", 8}, {"or", 9}, {"xor", 10}};
 
@@ -42,7 +41,11 @@ void AddVariable(const std::string& var, long double X) {
 	Variables.insert({var, X});
 }
 bool IsFunction(const std::string& op) {
-	if (op == "pow" || op == "sin")
+	if (op == "abs" || op == "acos" || op == "asin" || op == "atan" || op == "asin2" || op == "bigmul" || op == "ceiling"
+		|| op == "cos" || op == "cosh" || op == "divrem" || op == "exp" || op == "exp" || op == "floor" || op == "ieeeremainder" || op == "log" || op == "log10"
+		|| op == "max" || op == "min" || op == "pow" || op == "round" || op == "sign" || op == "sin" || op == "sinh" || op == "sqrt" || op == "tan" || op == "tanh"
+		|| op == "truncate" || op == "acosh" || op == "asinh" || op == "atanh" || op == "bitdecrement" || op == "bitincrement" || op == "cbrt" || op == "clamp"
+		|| op == "copysign" || op == "fusedmultiplyadd" || op == "ilogb" || op == "log2" || op == "maxmagnitude" || op == "minmagnitude" || op == "scaleb")
 		return true;
 
 	return false;
@@ -108,7 +111,7 @@ void GeneratePostfix(const std::string& expr) {
 			while (i < len) {
 				c = expr[i];
 
-				if (!isalpha(c))
+				if (!isalnum(c))
 					break;
 
 				token += c;
@@ -301,15 +304,144 @@ void Calculate(const std::string& op) {
 		else
 			Results.push(0);
 	}
-	else if (op == "pow") {
-		long double b = GetParameter();
-		long double a = GetParameter();
-		Results.push(std::pow(a, b));
+	else if (op == "abs") {
+		long double A = GetParameter();
+		Results.push(std::abs(A));
 	}
-	else if (op == "sin") {
-		long double a = GetParameter();
-		Results.push(std::sin(a));
+	else if (op == "acos") {
+		long double A = GetParameter();
+		Results.push(std::acos(A));
 	}
+	else if (op == "asin") {
+		long double A = GetParameter();
+		Results.push(std::asin(A));
+	}
+	else if (op == "atan") {
+		long double A = GetParameter();
+		Results.push(std::atan(A));
+	}
+	else if (op == "atan2") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(std::atan2(A, B));
+	}else if (op == "bigmul") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push((long)(A *B));
+	}else if (op == "ceiling") {
+		long double A = GetParameter();
+		Results.push(std::ceill(A));
+	}else if (op == "cos") {
+		long double A = GetParameter();
+		Results.push(std::cosl(A));
+	}else if (op == "cosh") {
+		long double A = GetParameter();
+		Results.push(std::coshl(A));
+	}else if (op == "exp") {
+		long double A = GetParameter();
+		Results.push(std::expl(A));
+	}else if (op == "floor") {
+		long double A = GetParameter();
+		Results.push(std::floorl(A));
+	}else if (op == "ieeeremainder") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push((long)((long) A % (long) B));
+	}else if (op == "log") {
+		long double A = GetParameter();
+		Results.push(std::logl(A));
+	}else if (op == "log10") {
+		long double A = GetParameter();
+		Results.push(std::log10l(A));
+	}else if (op == "max") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(std::fmaxl(A, B));
+	}else if (op == "min") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(std::fminl(A, B));
+	}else if (op == "pow") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(std::powl(A, B));
+	}else if (op == "round") {
+		long double A = GetParameter();
+		Results.push(std::roundl(A));
+	}else if (op == "sign") {
+		long double A = GetParameter();
+		if (A < 0)
+			Results.push(-1);
+		else if (A == 0)
+			Results.push(0);
+		else
+			Results.push(1);
+	}else if (op == "sin") {
+		long double A = GetParameter();
+		Results.push(std::sinl(A));
+	}else if (op == "sinh") {
+		long double A = GetParameter();
+		Results.push(std::sinhl(A));
+	}else if (op == "tan") {
+		long double A = GetParameter();
+		Results.push(std::tanl(A));
+	}else if (op == "tanh") {
+		long double A = GetParameter();
+		Results.push(std::tanhl(A));
+	}else if (op == "truncate") {
+		long double A = GetParameter();
+		Results.push(std::truncl(A));
+	}else if (op == "acosh") {
+		long double A = GetParameter();
+		Results.push(std::acoshl(A));
+	}else if (op == "asinh") {
+		long double A = GetParameter();
+		Results.push(std::asinhl(A));
+	}else if (op == "atanh") {
+		long double A = GetParameter();
+		Results.push(std::tanhl(A));
+	}
+	else if (op == "cbrt") {
+		long double A = GetParameter();
+		Results.push(std::cbrtl(A));
+	}else if (op == "copysign") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(std::copysignl(A, B));
+	}else if (op == "fusedmultiplyadd") {
+		long double C = GetParameter();
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(std::roundl((A * B) + C));
+	}else if (op == "ilogb") {
+		long double A = GetParameter();
+		Results.push(std::ilogbl(A));
+	}else if (op == "log2") {
+		long double A = GetParameter();
+		Results.push(std::log2l(A));
+	}else if (op == "maxmagnitude") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		if (A > B)
+			Results.push(A);
+		else if (A < B)
+			Results.push(B);
+	}else if (op == "minmagnitude") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		if (A > B)
+			Results.push(B);
+		else if (A < B)
+			Results.push(A);
+	}else if (op == "scaleb") {
+		long double B = GetParameter();
+		long double A = GetParameter();
+		Results.push(A * (std::pow(2, B)));
+	}else if (op == "sqrt") {
+		long double A = GetParameter();
+		Results.push(std::sqrtl(A));
+	}
+
 }
 
 long double Evaluate() {
