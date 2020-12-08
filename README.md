@@ -2,13 +2,13 @@
 A simple expression evaluator that doesn't use OOP.
 
 # How does it work?
-* It converts the given expression from infix form to it's postfix form using the [Shunting-Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
-* Using the postfix form of the expression, it follows this algorithm to get the result of the expression:
+* It converts the given expression from the infix form to it's postfix form using the [Shunting-Yard Algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+* Using the postfix form of the expression, it follows this algorithm to get the result:
   * Create a stack to store operands (or values).
-  * Scan the postfix expression and do following for every scanned element.
+  * Scan the postfix expression and do the following steps for each element.
     * If the element is a number, push it into the stack
-    * If the element is a operator, pop operands for the operator from stack. Evaluate the operator and push the result back to the stack
-  * When the scan is ended, the number in the stack is the final answer
+    * If the element is an operator, pop operands for the operator from stack. Evaluate the operator and push the result back to the stack
+  * When the scan is ended, the number in the stack is the final answer.
   
 # What operations does it support ?
   - [x] Paranthesis: You can use `(` and `)` for the general purposes.
