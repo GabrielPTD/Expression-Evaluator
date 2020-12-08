@@ -28,6 +28,10 @@ A simple expression evaluator that doesn't use OOP.
   * Added support for logical constants (`true, false`).
   * Added **debug** informations and **rules**.
 * Changelog 1.2
-  * Added support for all the functions from [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions) (except DivRem - will be added in next update)
+  * Added support for all the functions found [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions) (except DivRem - will be added in next update)
   * Fixed an error that made some functions that contain numbers in the name to not be recognized.
   * Deleted some useless comments.
+* Changelog 1.3
+  * Added support for function DivRem found [here](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/functions/math-functions).
+  * Changed the Result stack from type `long double` to `std::string` so it can support changing the value of a variable after it was defined.
+  * Fixed a bug with the `not` operator, had to change it's precedance.
