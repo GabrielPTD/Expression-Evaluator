@@ -19,7 +19,7 @@ A simple expression evaluator that doesn't use OOP.
   
 # How to use ?
 * Compile the source with a compiler that supports at least c++11 (works on both **Windows** and **Linux**).
-* Run the program and insert the expression, e.g: `(1 + (2 * 3) - 2) / 5` and it will return the answer `5`.
+* Run the program and insert the expression, e.g: `(1 + (2 * 3) - 2) / 5` and it will return the answer `1`.
 
 # Changelog
 * Changelog 1.1
